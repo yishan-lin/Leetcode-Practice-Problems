@@ -52,11 +52,26 @@ public class TreeRecursion {
         
     }
     
+    public static void preordertraversal(Node root) {
+     
+        if (root == null) {
+            System.out.print("");
+        }  
+        else {
+            System.out.print(root.item + ", ");
+            preordertraversal(root.left);
+            preordertraversal(root.right);
+        }
+        
+    }
+    
     public static void main(String[] args) {
         
         Node root1 = null;
         int[] A = {5, 4, 7, 9, 12, 11, 5};
         root1 = convertarraytotree(A);
+        
+        preordertraversal(root1);
         
     }
 }
