@@ -65,10 +65,26 @@ public class TreeRecursion {
         
     }
     
+    public static int printleftleavessum(Node root) {
+     
+        if (root == null) {
+            return 0;
+        }
+        
+        else if (root.left.left == null && root.left.right == null && root.left !=null) {
+            return (1 + printleftleavessum(root.right) + printleftleavessum(root.left));
+        }
+        
+        else {
+            return printleftleavessum(root.right) + printleftleavessum(root.left);
+        }
+        
+    }
+    
     public static void main(String[] args) {
         
         Node root1 = null;
-        int[] A = {5, 4, 7, 9, 12, 11, 5};
+        int[] A = {3, 9, 20, 15, 7};
         root1 = convertarraytotree(A);
         
         preordertraversal(root1);
