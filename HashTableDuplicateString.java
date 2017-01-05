@@ -1,5 +1,6 @@
 import java.util.Hashtable;
 import java.util.Enumeration;
+import java.util.Set;
 
 public class HashTableDuplicateString {
     
@@ -30,16 +31,18 @@ public class HashTableDuplicateString {
             
         }
         
-        Enumeration hashtablekeys = duplicate.keys();
-        Enumeration hashtablevalues = duplicate.elements();
+        //Enumeration hashtablekeys = duplicate.keys();
+        //Enumeration hashtablevalues = duplicate.elements();
         
-        while (hashtablekeys.hasMoreElements()) { //main traversal of hash table keys
+        Set<Character> characterset = duplicate.keySet();
+        
+        System.out.println("Found duplicates in " + x);
+        
+        for (Character c : characterset) {
             
-            //Character keycomparison = hashtablekeys.nextElement();
-            
-            if (duplicate.get(hashtablekeys.nextElement()) > 1) {
+            if (duplicate.get(c) > 1) {
                 
-                System.out.println("DUPLICATE SPOTTED! = " + duplicate.keys());
+                System.out.println((c) + " : " + duplicate.get(c));
                 
             }
             
@@ -51,6 +54,24 @@ public class HashTableDuplicateString {
             
         }
         
+       /* while (hashtablekeys.hasMoreElements()) { //main traversal of hash table keys
+            
+            //Character keycomparison = hashtablekeys.nextElement();
+            
+            if (duplicate.get(hashtablekeys.nextElement()) > 1) {
+                
+                System.out.println("DUPLICATE SPOTTED! = ");
+                
+            }
+            
+            else {
+                
+                continue;
+                
+            }
+            
+        }*/
+        
         /* if (duplicate.get(chararray[count]) > 1) {
          * 
          System.out.println("Here are the duplicate characters in a String = " + chararray[count]);
@@ -61,7 +82,7 @@ public class HashTableDuplicateString {
     
     public static void main(String[] args) {
         
-        duplicate("yoy");
+        duplicate("Javahelloiamhavingfun");
         
     }
     
