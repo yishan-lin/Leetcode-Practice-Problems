@@ -1,40 +1,36 @@
 import java.util.Hashtable;
 import java.util.Enumeration;
+import java.util.Set;
 
 public class HashTablePractice {
     
     public static void main(String[] args) {
         
-        Hashtable<String, String> companies = new Hashtable<String, String>();
+        Hashtable<String, String> family = new Hashtable<String, String>();
         
-        Enumeration iterator;
-        Enumeration valueiterator;
+        family.put("Yishan", "Lin");
+        family.put("Ben", "Anderson");
+        family.put("Sean", "Smith");
+        family.put("Joe", "Stein");
+        family.put("Thomas", "Edison");
         
-        companies.put("Apple", "Cupertino");
-        companies.put("Uber", "San Francisco");
-        companies.put("Oracle", "Redwood City");
+        Enumeration firstnames = family.keys();
+        Enumeration lastnames = family.elements();
         
-        iterator = companies.keys();
-        valueiterator = companies.elements();
-        
-        System.out.println("should be true = " + companies.containsKey("Apple"));
-        System.out.println("should be false = " + companies.containsValue("Saratoga"));
-        
-        System.out.println("should be true if element = " + iterator.hasMoreElements());
-        
-        System.out.println("is hashtable empty = " + companies.isEmpty());
-        
-        while (iterator.hasMoreElements()) {
-            
-            System.out.println(iterator.nextElement() + " : " + valueiterator.nextElement());
-            
+        while (firstnames.hasMoreElements()) {
+            System.out.println(lastnames.nextElement() + ", " + firstnames.nextElement());
         }
         
-        System.out.println("is hashtable empty = " + companies.isEmpty());
-        System.out.println("hashtable size = " + companies.size());
+        System.out.println(family.size());
+        System.out.println(family.containsKey("Ben"));
+        System.out.println(family.containsValue("Tesla"));
+        System.out.println(family.get("Sean"));
         
-        System.out.println(companies.get("Apple"));
-        System.out.println(companies.get("Cupertino"));
+        Set first_names = family.keySet();
+        
+        System.out.println("first_names set = " + first_names);
+        
+        
         
     }
     
