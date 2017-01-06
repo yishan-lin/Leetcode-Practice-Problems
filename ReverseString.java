@@ -1,35 +1,33 @@
-/*Write a function that takes a string as input and returns the string reversed.
- * 
- Example:
- Given s = "hello", return "olleh".*/
-
-import java.util.Arrays;
-
 public class ReverseString {
-    
-    public static void swap(String s) {
+ 
+    static void swap(String string) {
      
-        char temp = 'a';
+        char[] chararray = string.toCharArray();
+        
         int x = 0;
+        int y = 1;
         
-        while (x < s.length()) {
-        
-        char temp = s.charAt(x);
-        s.charAt(x) = s.charAt(s.length() - x)
-        s.charAt(s.length() - x) = temp;    
-        System.out.println(x);
-        
-        x++;
-        
+        while (x != chararray.length-y) {
+            
+            //System.out.println("x = " + x);
+            //System.out.println("y = " + y);
+         
+            char temp = chararray[x];
+            chararray[x] = chararray[chararray.length - y];
+            chararray[chararray.length - y] = temp;
+            
+            x++;
+            y++;
+            
         }
+        
+        System.out.println(new String (chararray));
+        
     }
-
     
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         
-        String s = "hello";
-        swap(s);
-        
+        swap("hello");
         
     }
     
