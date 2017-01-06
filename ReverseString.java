@@ -1,5 +1,5 @@
 public class ReverseString {
- 
+    
     static void swap(String string) {
      
         char[] chararray = string.toCharArray();
@@ -7,21 +7,19 @@ public class ReverseString {
         int x = 0;
         int y = 1;
         
-        while (x != chararray.length-y) {
-            
-            //System.out.println("x = " + x);
-            //System.out.println("y = " + y);
+        while (x != chararray.length - y) {
          
             char temp = chararray[x];
             chararray[x] = chararray[chararray.length - y];
             chararray[chararray.length - y] = temp;
             
-            x++;
-            y++;
+            x+= 1;
+            y+= 1;
             
         }
         
         System.out.println(new String (chararray));
+        
         
     }
     
