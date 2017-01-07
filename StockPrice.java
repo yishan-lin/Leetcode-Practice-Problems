@@ -27,16 +27,59 @@ public class StockPrice {
         
         int index = 0;
         
+        
         for (int x : stock_prices_yesterday) {
          
             stockprices.put(x, index);
-            
             index += 1;
-            
+         
         }
         
         Enumeration stock_price = stockprices.keys();
+        Enumeration times = stockprices.elements();
         
+        Set<Integer> stock_price_ints = stockprices.keySet();
+        
+        //For debugging purposes
+        System.err.println("Enumeration Printing");
+        
+        while (stock_price.hasMoreElements()) {
+         
+            System.out.println(stock_price.nextElement() + " : " + times.nextElement());
+            
+        }
+        
+        //traversing through hastable, putting keys through keyset, printing out respective values with get()
+
+        System.err.println("Traversal Printing");
+        
+        for (int key : stock_price_ints) {
+
+            System.out.println((key) + " : " + (stockprices.get(key))) ;
+            
+        }
+        
+        //System.err.println("findmax = " + findMax(stock_prices_yesterday, stockprices));
+        
+    }
+    
+    static int findMax(int[] stock_prices_yesterday, Hashtable stockprices) {
+     
+        int maximum = stock_prices_yesterday[0];
+
+        stockprices.get(maximum);
+        
+       for (int x = 1; x < stock_prices_yesterday.length; x++) {
+         
+            if ((stock_prices_yesterday[x] > maximum) && (stockprices.get(stock_prices_yesterday[x])) > (stockprices.get(maximum))) {
+                
+                maximum = stock_prices_yesterday[x];
+                System.out.println("MAXIMUM = " + maximum);
+                
+            }
+            
+            
+        }
         
     }
     
