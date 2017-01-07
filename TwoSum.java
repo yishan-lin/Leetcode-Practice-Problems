@@ -1,24 +1,33 @@
+import java.util.Hashtable;
+
 public class TwoSum {
     
     public static int[] twosum(int[] array, int target) {
         
+        Hashtable<Integer, Integer> twosumcheck = new Hashtable<Integer, Integer>();
+        
+        int[] solution = new int[2];
+        int index = 0;
+        
         for (int x = 0; x < array.length; x++) {
-            for (int y = x + 1; y < array.length; y++) {
+            
+            if (twosumcheck.containsKey(target - array[x])) {
                 
-                int diff = target - array[x];
+                solution[0] = x;
+                System.out.println("solution[0] = " + (x));
+                solution[1] = twosumcheck.get(target - array[x]);
+                System.out.println("solution[1] = " + twosumcheck.get(target - array[x]));
                 
-                if (array[y] == diff) {
-                    int[] solution = {x, y};
-                    System.err.println("x = " + x);
-                    System.err.println("y = " + y);
-                    return solution;
-                }
+                return solution;
                 
             }
             
+            twosumcheck.put(array[x], x + index);
+            index++;
         }
         
-        return null;
+        
+        return solution;
         
     }
     
