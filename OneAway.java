@@ -1,50 +1,40 @@
 /*There are three types of edits that can be peformed on string, insert, remove a character, or replace a character. Write a function to check if they are one 
  * or zero edits away.*/
 
-import java.util.Hashtable;
-
 public class OneAway {
     
-    static boolean oneaway(String ideal, String current) {
+    static boolean oneAway(String ideal, String current) {
+     
+        //if it just needs to replace one char, that means both strings are of equal length
         
-        System.out.println("IDEAL LENGTH = " + ideal.length());
-        System.out.println("CURRENT LENGTH = " + current.length());
-        
-        //if the length are the same, check if they need replacing
         if (ideal.length() == current.length()) {
-            return replacecheck(ideal, current);
+         
+           System.err.println("checking if replace.");
+           return replacecheck(ideal, current);
             
-        }
-        //check if it is insert
-        else if (ideal.length() == current.length() + 1) {
-            return insertcheck(ideal, current);
-        }
-        //check if it is delete
-        else if (ideal.length() == current.length() - 1) {
-            return insertcheck(ideal, current);
         }
         
         return false;
+        
     }
     
     static boolean replacecheck(String ideal, String current) {
-        
+     
         char[] idealarray = ideal.toCharArray();
         char[] currentarray = current.toCharArray();
- 
-        boolean found1stdifference = false;
+        
+        boolean founddifferencealready = false;
         
         for (int x = 0; x < idealarray.length; x++) {
-            
+          
             if (idealarray[x] != currentarray[x]) {
-
-                if (found1stdifference) {
-                 
-                    return false;
-                    
-                }
                 
-                found1stdifference = true;
+                if (founddifferencealready) { //because this means it has already found a difference before
+                   System.out.println("found a difference already");
+                    return false;
+                }
+             
+                founddifferencealready = true;
                 continue;
                 
             }
@@ -52,50 +42,15 @@ public class OneAway {
         }
         
         return true;
-    }
-    
-    static boolean insertcheck(String ideal, String current) {
-        
-        char[] idealarray = ideal.toCharArray();
-        char[] currentarray = current.toCharArray();
-        
-        int x = 0;
-        int y = 0;
-        
-        while (x < ideal.length() && y < current.length()) {
-         
-            System.out.println(idealarray[x] + " VS " + currentarray[y]);
-            
-            if (idealarray[x] != currentarray[y]) {
-                
-                if (x != y) {
-                    return false;
-                }
-                
-                x+= 1;
-                
-            }
-            
-            else {
-            
-            x +=1;
-            y += 1;
-            
-            }
-        }
-        
-        return true;
         
     }
     
-
     public static void main(String[] args) {
         
-        String ideal = "hale";
-        String current = "hales";
+        String ideal = "HALE";
+        String current = "ZZLE";
         
-        System.err.println("COMPARING " + ideal + " WITH " + current);
-        System.out.println(oneaway(ideal, current));
+        System.out.println(oneAway(ideal, current));
         
     }
     
@@ -212,6 +167,90 @@ public class OneAway {
  checknextone = true;
  continue;
  }
+ 
+ ---***CORRECT SOLUTION***---
+ static boolean oneaway(String ideal, String current) {
+        
+        System.out.println("IDEAL LENGTH = " + ideal.length());
+        System.out.println("CURRENT LENGTH = " + current.length());
+        
+        //if the length are the same, check if they need replacing
+        if (ideal.length() == current.length()) {
+            return replacecheck(ideal, current);
+            
+        }
+        //check if it is insert
+        else if (ideal.length() == current.length() + 1) {
+            return insertcheck(ideal, current);
+        }
+        //check if it is delete
+        else if (ideal.length() == current.length() - 1) {
+            return insertcheck(ideal, current);
+        }
+        
+        return false;
+    }
+    
+    static boolean replacecheck(String ideal, String current) {
+        
+        char[] idealarray = ideal.toCharArray();
+        char[] currentarray = current.toCharArray();
+ 
+        boolean found1stdifference = false;
+        
+        for (int x = 0; x < idealarray.length; x++) {
+            
+            if (idealarray[x] != currentarray[x]) {
+
+                if (found1stdifference) {
+                 
+                    return false;
+                    
+                }
+                
+                found1stdifference = true;
+                continue;
+                
+            }
+            
+        }
+        
+        return true;
+    }
+    
+    static boolean insertcheck(String ideal, String current) {
+        
+        char[] idealarray = ideal.toCharArray();
+        char[] currentarray = current.toCharArray();
+        
+        int x = 0;
+        int y = 0;
+        
+        while (x < ideal.length() && y < current.length()) {
+         
+            System.out.println(idealarray[x] + " VS " + currentarray[y]);
+            
+            if (idealarray[x] != currentarray[y]) {
+                
+                if (x != y) {
+                    return false;
+                }
+                
+                x+= 1;
+                
+            }
+            
+            else {
+            
+            x +=1;
+            y += 1;
+            
+            }
+        }
+        
+        return true;
+        
+    }
  
  }*/
 
