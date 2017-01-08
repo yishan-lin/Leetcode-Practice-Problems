@@ -13,8 +13,49 @@ public class OneAway {
            return replacecheck(ideal, current);
             
         }
+        //the current is short by one, see if needs to add one more
+        else if (ideal.length() == current.length()+1) {
+            
+            System.err.println("checking if need to add one more character");
+            return insertcheck(ideal, current);
+            
+        }
         
         return false;
+        
+    }
+    
+    static boolean insertcheck(String ideal, String current) {
+     
+        char[] idealarray = ideal.toCharArray();
+        char[] currentarray = current.toCharArray();
+        
+        int ideal_index = 0;
+        int current_index = 0;
+        
+        while (ideal_index < idealarray.length && current_index < currentarray.length) {
+            
+            if (currentarray[current_index] != idealarray[ideal_index]) {
+             
+                if (current_index != ideal_index) {
+                    
+                    return false;
+                    
+                }
+                
+                ideal_index+= 1;
+            }
+            
+            else {
+                
+                ideal_index += 1;
+                current_index += 1;
+                
+            }
+            
+        }
+        
+        return true;
         
     }
     
@@ -48,7 +89,7 @@ public class OneAway {
     public static void main(String[] args) {
         
         String ideal = "HALE";
-        String current = "ZZLE";
+        String current = "HFE";
         
         System.out.println(oneAway(ideal, current));
         
