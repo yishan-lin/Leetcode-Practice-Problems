@@ -11,24 +11,32 @@ public class StringCompression {
         char[] stringarray = string.toCharArray();
         
         int count = 1;
+        String solution = "";
         
         char comparison = stringarray[0];
         
         for (int x = 1; x < stringarray.length; x++) {
             
-            System.out.println("char = " + stringarray[x] + " @ index of " + x);
+            //System.out.println("char = " + stringarray[x] + " @ index of " + x);
             
             if (comparison != stringarray[x]) {
                 
                 if (x == stringarray.length - 1) {
                     
                     count = 1;
-                    System.err.println("***REACHED THE END***");
-                    System.err.println("Stored final char " + stringarray[x] + " with " + count);
+                    //System.err.println("***REACHED THE END***");
+                    
+                    solution = solution + stringarray[x] + "" + count;
+                    
+                    //System.err.println("Stored final char " + stringarray[x] + " with " + count);
                     
                 }
                 
-                System.err.println("Storing " + comparison + ", # of times seen in a row: " + count);
+                //System.err.println("Storing " + comparison + ", # of times seen in a row: " + count);
+                
+                solution = solution + comparison +  "" + count;
+                //System.out.println("solution = " + solution);
+                //System.out.println("comparison = " + comparison);
                 
                 //resetting the count and the comparison array as it keeps going
                 comparison = stringarray[x];
@@ -39,14 +47,15 @@ public class StringCompression {
             
             else {
                 
-                System.out.println("same character as before " + stringarray[x] + " so adding to its count");
+                //System.out.println("same character as before " + stringarray[x] + " so adding to its count");
                 count += 1;
                 
                 if (x == stringarray.length - 1) {
 
-                    System.err.println("***REACHED the end***");
-                    System.err.println("Stored final char " + comparison + " with " + count);
+                    //System.err.println("***REACHED the end***");
+                    //System.err.println("Stored final char " + comparison + " with " + count);
                     
+                    solution = solution + comparison + "" + count;
                     
                 }
                 
@@ -56,6 +65,8 @@ public class StringCompression {
             
             
         }
+        
+        System.out.println((String) solution);
         
     }
     
