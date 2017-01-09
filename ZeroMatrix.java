@@ -1,8 +1,88 @@
 public class ZeroMatrix {
     
+    static void display(int[][] zeromatrix) {
+     
+        for (int x = 0; x < zeromatrix.length; x++) {
+         
+            for (int  y = 0; y < zeromatrix[x].length; y++) {
+             
+                if (y == zeromatrix[x].length - 1) {
+                 
+                    System.err.print(zeromatrix[x][y]);
+                    
+                }
+                
+                else {
+                
+                System.err.print(zeromatrix[x][y] + ",");
+                
+                }
+                
+            }
+            
+            System.out.println("");
+            
+        }
+        
+    }
+
+    static int[][] findzero(int[][] zeromatrix) {
+     
+        for (int x = 0; x < zeromatrix.length; x++) {
+            
+            for (int y = 0; y < zeromatrix[x].length; y++) {
+                
+                if (zeromatrix[x][y] == 0) {
+                    
+                    System.out.println("Zero found in matrix @ row " + x + " column " + y);
+                    
+                    int foundindex[] = {x, y};
+                    
+                    return resetzeros(foundindex, zeromatrix);
+                    
+                }
+                
+            }
+            
+        }
+        
+        return null;
+    }
+    
+    static int[][] resetzeros(int[] foundindex, int[][] zeromatrix) {
+        
+        System.out.println("ROW = " + foundindex[0]);
+        System.out.println("COLUMN = " + foundindex[1]);
+        
+        for (int x = 0; x < zeromatrix.length; x++) {
+         
+            if (x == foundindex[0]) {
+                
+                System.out.println("found row!" + x);
+                
+                for (int y = 0; y < zeromatrix[x].length; y++) { //traverse down the row
+                    
+                    zeromatrix[x][y] = 0;
+                    
+                }
+                
+            }
+            
+        }
+        
+        System.out.println("zeromatrix = " + zeromatrix[0][1]);
+        
+        return null;
+        
+    }
+        
     public static void main(String[] args) {
         
-        int[][] zeromatrix = { {1,2,3,4}, {5,6,7,8}, {9,10,11,12}, {13,14,15,16} };
+        int[][] zeromatrix = { {10,11,0,13}, {14,15,16,17}, {18,19,20,21} };
+        
+        display(zeromatrix);
+        findzero(zeromatrix);
+        
         
     }
     
