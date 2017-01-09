@@ -54,7 +54,10 @@ public class ZeroMatrix {
         System.out.println("ROW = " + foundindex[0]);
         System.out.println("COLUMN = " + foundindex[1]);
         
+        //traversing down ro wfor deletion
         for (int x = 0; x < zeromatrix.length; x++) {
+            
+            zeromatrix[x][(foundindex[1])] = 0;
          
             if (x == foundindex[0]) {
                 
@@ -70,9 +73,8 @@ public class ZeroMatrix {
             
         }
         
-        System.out.println("zeromatrix = " + zeromatrix[0][1]);
         
-        return null;
+        return zeromatrix;
         
     }
         
@@ -81,7 +83,7 @@ public class ZeroMatrix {
         int[][] zeromatrix = { {10,11,0,13}, {14,15,16,17}, {18,19,20,21} };
         
         display(zeromatrix);
-        findzero(zeromatrix);
+        display(findzero(zeromatrix));
         
         
     }
