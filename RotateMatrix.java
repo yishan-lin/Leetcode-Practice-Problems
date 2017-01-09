@@ -4,7 +4,7 @@ public class RotateMatrix {
     
     public static void main(String[] args) {
         
-        String[][] matrix = { {"A","B","C","D"}, {"E","F","G","H"},{"J","K","L","M"}, {"N","O","P","Q"} };
+        String[][] matrix = { {"A","B","C","D"}, {"E","F","G","H"},{"I","J","K","L"}, {"M","N","O","P"} };
         
         //Traversal of matrix to print out all for reference
         System.err.println("Traversal of matrix");
@@ -23,28 +23,48 @@ public class RotateMatrix {
         
         int first = 0;
         
-        System.err.println("**CORNERS**");
-        System.err.println(matrix[0][0] + " swap with " + matrix[0][3]);
-        System.err.println(matrix[3][0] + " swap with " + matrix[3][3]);
+        /*System.err.println("**CORNERS**");
+        System.err.println(matrix[0][0] + "  => " + matrix[0][3]);
+        System.err.println(matrix[0][3] + "  => " + matrix[3][3]);
+        System.err.println(matrix[3][3] + "  => " + matrix[3][0]);
+        System.err.println(matrix[3][0] + "  => " + matrix[0][0]);
         
         System.err.println("**INNERS 1**");
-        System.err.println(matrix[0][1] + " swap with " + (matrix[1][3]));
-        System.err.println(matrix[3][1] + " swap with " + (matrix[1][0]));
+        System.err.println(matrix[0][1] + "  => " + (matrix[1][3]));
+        System.err.println(matrix[1][3] + "  => " + (matrix[1][3]));
+        System.err.println(matrix[3][1] + "  => " + (matrix[1][0]));
         
         System.err.println("**INNERS 2**");
-        System.err.println(matrix[0][2] + " swap with " + matrix[2][3]);
-        System.err.println(matrix[3][2] + " swap with " + matrix[2][0]);
+        System.err.println(matrix[0][2] + "  => " + matrix[2][3]);
+        System.err.println(matrix[3][2] + "  => " + matrix[2][0]);*/
         
-        System.err.println("test of method");
-        for (int x = 0; x < matrix.length; x++) {
+        System.out.println("!!!test of method!!!");
+        
+        int last = matrix.length-1;
+        
+        int x = 0;
+        
+        //for (int x = 0; x < matrix.length; x++) {
             
-            String top = matrix[first][x];
-            System.out.println("top = " + top);
+            String topleft = matrix[first][x];
 
-            String rightcorner = matrix[x][matrix.length - 1];
-            System.err.println("swap with = " + rightcorner);
+            String topright = matrix[first][last];
             
-        }
+            String botleft = matrix[last][x];
+            
+            String botright = matrix[last][last];
+            
+            String temp = topleft;
+            topleft = botleft;
+            botleft = botright;
+            botright = topright;
+            topright = temp;
+            
+            System.out.println("topleft = " + topleft + "topright = " + topright + "botright = " + botright + "botleft = " + botleft);
+            
+         
+            
+        //}
         
         
         
