@@ -55,6 +55,25 @@ public class ParsingStringsPractice {
             
         }
         
+        String companies = "palantir,, google";
+        
+        int a = companies.indexOf("p");
+        
+        System.out.println("a = " + a);
+        
+        String[] companyarray = companies.trim().split("[ ,]+");
+        
+        
+        for (String x: companyarray) {
+            
+            System.out.println(x);
+            
+        }
+        
+        String stringtest = "hello";
+        System.out.println("This is the substring: " + stringtest.substring(1));
+        
+        
         
         
     }
