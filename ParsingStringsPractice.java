@@ -45,7 +45,15 @@ public class ParsingStringsPractice {
         
         String employeelist = "Smith,Katie,3014,,8.25,6.5,,,10.75,8.5||Smith,Katie,3014,,8.25,6.5,,,10.75,8.5";
         
-        String employeelistarray[] = employeelist.trim().split("[||]").split("[,]");
+        String employeelistarray[] = employeelist.trim().split("[||]");
+        System.out.println("array length = " + employeelistarray.length);
+        
+        for (int x = 0; x < employeelistarray.length; x++) {
+         
+            System.out.println("x = " + x);
+            System.out.println(employeelistarray[x]);
+            
+        }
         
         
         
