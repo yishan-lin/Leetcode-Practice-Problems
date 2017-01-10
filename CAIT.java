@@ -1,13 +1,62 @@
+import java.util.Hashtable;
+
 public class CAIT {
     
     static String[] findPotentialInsiderTraders(String[] datafeed) {
+        
+        Hashtable<Integer, Integer> stockprice = new Hashtable<Integer, Integer>();
      
         //printing out the 
-        System.err.println("Printing out data array.");
+        /*System.err.println("***Printing out data array.***");
         for (String x: datafeed) {
 
-            System.out.println(x);
-            System.out.println(x.split("|"));
+            System.err.println(x);
+            
+        }*/
+        
+        System.out.println();
+        System.err.println("***After Parsing String***");
+        
+         for (int x = 0; x < datafeed.length; x++) {
+             
+            if (datafeed[x].length() == 4) {
+              
+                System.err.println("This is a stock price.");
+                
+                 String[] datafeedsplit = datafeed[x].trim().split("\\|");
+                 
+                 System.err.println("datafeedsplit[0] = " + datafeedsplit[0]);
+                 System.err.println("datafeedsplit[1] = " + datafeedsplit[1]);
+                 
+                 
+                 
+                 
+                for (String y: datafeedsplit) {
+                    
+                    System.out.println(y);
+                    
+                    
+                }
+                
+            }
+            
+            else {
+                
+                System.err.println("This is a transaction.");
+                
+            }
+            
+            
+            
+            String[] datafeedsplit = datafeed[x].trim().split("\\|");
+            
+            for (String y: datafeedsplit) {
+                
+                System.out.println(y);
+                
+            }
+            
+            System.out.println("");
             
         }
         
