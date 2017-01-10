@@ -84,6 +84,88 @@ public class ParsingStringsPractice {
         System.out.println(string.substring(0, left) + upperportion + string.substring(right, string.length()));
         
         
+        /*ven a string, returns how many '!' chars it contains. 
+         *This code demonstrates using a for loop, calling length(), substring()/charAt(), and equals() to look at all the chars in a string:*/
+        
+        String valleyman = "Oh my God!! That was so awesome!!!";
+        
+        char[] valleymanarray = valleyman.toCharArray();
+        
+        int exclamationcount = 0;
+        
+        for (char x: valleymanarray) {
+            
+            if (x == '!') {
+                exclamationcount+= 1;
+            }
+            
+        }
+        
+        System.err.println("Oh my God!! That was so awesome!!!");
+        System.out.println("# of exclamations: " + exclamationcount);
+        
+        /*Given a string where the string "OOP" appears at least two times, 
+         * find the first and last OOP in the whole string. Return the text from between the two OOP. 
+         * Demonstrates using indexOf() and substring():*/
+        
+        String parsethis = "OOP FSALDKFASL FDKJAS  LKFAJL FSAFSAOOP ASDFASJ FLKSA DFA";
+        
+        System.out.println("The 1st time this appears: " + parsethis.indexOf("OOP"));
+        System.out.println("The last time this string appears: " + parsethis.lastIndexOf("OOP"));
+        
+        System.err.println(parsethis.substring(parsethis.indexOf("OOP") + 1, parsethis.lastIndexOf("OOP")));
+        
+        /*Suppose you have a string like this:"Once there was a woman name:angelina: and a man name:tony: 
+         * and their friend name:jane: and ...". Inside of a long text there are little "name:" sections. Write 
+         * code to find and print all the names. Demonstrates a more complex use of indexOf() and substring() in a loop to parse a string:*/
+        
+        String exampletest = "Once there was a woman name:angelina: and a man name:tony: and their friend name:jane:";
+        
+        System.err.println("example test length = " + exampletest.length());
+        
+        int index_iterator = 0;
+        
+        while (index_iterator <= exampletest.length()) {
+            
+            int first = exampletest.indexOf("name:", index_iterator);
+            System.out.println("first = " + first);
+            
+            int last = exampletest.indexOf(": ", first + 5);
+            
+            if (last == -1) {
+             
+                System.out.println("we've reached the end of the string");
+                last = exampletest.length() - 1;
+                
+                System.out.println(exampletest.substring(first+5, last));
+                break;
+                 
+                
+            }
+            
+            System.out.println("last = " + last);
+            
+            System.out.println(exampletest.substring(first + 5, last));
+            
+            index_iterator = last;
+                
+        }
+        
+        //for (int x = 0; x < exampletest.length(); x++) {
+        
+        /*     System.out.println(exampletest.indexOf(":"));
+         * 
+         char[] exampletestarray = exampletest.toCharArray();
+         int[] colonindex = new int[exampletestarray.length];      
+         
+         for (int x = 0; x < exampletestarray.length; x++) {
+         
+         if (exampletestarray[x] == ':') {
+         System.out.println("found one! " + "@ ");
+         
+         }
+         }*/
+        
     }
     
 }

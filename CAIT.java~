@@ -1,0 +1,19 @@
+public class CAIT {
+    
+    static String[] findPotentialInsiderTraders(datafeed) {
+     
+        datafeed.split("[]
+        
+        
+    }
+    
+    public static void main(String[] args) {
+        
+        String[] datafeed = {"0" | "Kristi" | "SELL" |"3000"};
+        
+        findPotentialInsiderTraders(datafeed);
+        
+    }
+    
+}
+
